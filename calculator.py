@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox
 
 mainWindow = tk.Tk()
 mainWindow.title("Calculator")   #Heading
@@ -36,29 +37,46 @@ result_label = tk.Label(mainWindow, text="",padx=20,pady=10)
 result_label.pack()
 
 def add():
-    value1 = int(name_field1.get())
-    value2 = int(name_field2.get())
-    result = value1+value2
-    result_label.config(text="Result:"+str(result))
-    #print(value1+value2)
+    try:
+        value1 = int(name_field1.get())
+        value2 = int(name_field2.get())
+        result = value1 + value2
+        result_label.config(text="Result: " + str(result))
+        #print(value1+value2)
+    except ValueError:
+        messagebox.showerror("Error", "Values must of integer type")
+
 def minus():
-    value1 = int(name_field1.get())
-    value2 = int(name_field2.get())
-    result = value1 - value2
-    result_label.config(text="Result:" + str(result))
-    #print(value1 - value2)
+    try:
+        value1 = int(name_field1.get())
+        value2 = int(name_field2.get())
+        result = value1 - value2
+        result_label.config(text="Result: " + str(result))
+        #print(value1 - value2)
+    except ValueError:
+        messagebox.showerror("Error", "Values must of integer type")
+
 def mul():
-    value1 = int(name_field1.get())
-    value2 = int(name_field2.get())
-    result = value1 * value2
-    result_label.config(text="Result:" + str(result))
-    #print(value1 * value2)
+    try:
+        value1 = int(name_field1.get())
+        value2 = int(name_field2.get())
+        result = value1 * value2
+        result_label.config(text="Result: " + str(result))
+        # print(value1 * value2)
+    except ValueError:
+        messagebox.showerror("Error", "Values must of integer type")
+
 def div():
-    value1 = int(name_field1.get())
-    value2 = int(name_field2.get())
-    result = value1 / value2
-    result_label.config(text="Result: " + str(result))
-    #print(value1 / value2)
+    try:
+        value1 = int(name_field1.get())
+        value2 = int(name_field2.get())
+        result = value1 / value2
+        result_label.config(text="Result: " + str(result))
+        #print(value1 / value2)
+    except ValueError :
+        messagebox.showerror("Error", "Values must of integer type")
+    except ZeroDivisionError :
+        messagebox.showerror("Error", "Divide By Zero")
 
 
 mainWindow.mainloop()
